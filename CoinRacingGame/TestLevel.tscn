@@ -216,35 +216,37 @@ scale = Vector2( 10, 10 )
 position = Vector2( 1198.67, 482.881 )
 scale = Vector2( 10, 10 )
 
-[node name="Money" parent="." instance=ExtResource( 4 )]
+[node name="money" type="Node" parent="."]
+
+[node name="Money" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -2704, 1472 )
 
-[node name="Money10" parent="." instance=ExtResource( 4 )]
+[node name="Money10" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -2088, 192 )
 
-[node name="Money11" parent="." instance=ExtResource( 4 )]
+[node name="Money11" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -2472, 616 )
 
-[node name="Money2" parent="." instance=ExtResource( 4 )]
+[node name="Money2" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -2392, 2672 )
 
-[node name="Money3" parent="." instance=ExtResource( 4 )]
+[node name="Money3" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -1776, 2992 )
 
-[node name="Money4" parent="." instance=ExtResource( 4 )]
+[node name="Money4" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -848, 3320 )
 
-[node name="Money5" parent="." instance=ExtResource( 4 )]
+[node name="Money5" parent="money" instance=ExtResource( 4 )]
 position = Vector2( 152, 2408 )
 
-[node name="Money6" parent="." instance=ExtResource( 4 )]
+[node name="Money6" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -600, 40 )
 
-[node name="Money7" parent="." instance=ExtResource( 4 )]
+[node name="Money7" parent="money" instance=ExtResource( 4 )]
 position = Vector2( -1192, 48 )
 
-[node name="Money8" parent="." instance=ExtResource( 4 )]
+[node name="Money8" parent="money" instance=ExtResource( 4 )]
 position = Vector2( 224, 776 )
 
-[node name="Money9" parent="." instance=ExtResource( 4 )]
+[node name="Money9" parent="money" instance=ExtResource( 4 )]
 position = Vector2( 416, 192 )
