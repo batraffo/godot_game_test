@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-
 var money = 0 setget set_money
 signal moneychanged
+
+var bullet = load("res://weapon/Laser.tscn")
 
 var wheel_base = 70  # Distance from front to rear wheel
 
@@ -82,4 +83,11 @@ func set_money(value):
 	var label= $Camera2D/CanvasLayer/Control/NumMoney
 	label.text="nick puzza " + str(money)
 
+func _unhandled_key_input(event):
+	if event.is_action_pressed("shoot"):
+		shoot()
 
+func shoot():
+	var b = bullet.instance()
+	b.transform= self.global_transform
+	get_node("/root/TestLevel").add_child((b))
