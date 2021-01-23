@@ -1,6 +1,14 @@
 extends Node
 
-onready var enemy = $Enemy #inizializzata dopo la chiamata a ready
+onready var enemy = $Enemy
+onready var battleActionButton = $UI/BattleActionButton
 
 func _on_SwordButton_pressed():
-	enemy.hp -= 4
+	
+	if enemy!=null:
+		enemy.hp -= 4
+
+
+func _on_Enemy_died():
+	battleActionButton.hide()
+	enemy= null
