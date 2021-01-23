@@ -1,0 +1,250 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://car/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://obstacles/GodotObstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/comic-sans-ms_[it.allfont.net].ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://pickup/Money.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_color = Color( 0.14902, 0.611765, 0.168627, 1 )
+font_data = ExtResource( 3 )
+
+[node name="TestLevel" type="Node"]
+
+[node name="Car" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
+current = true
+zoom = Vector2( 2, 2 )
+smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Car/Camera2D"]
+
+[node name="Control" type="Control" parent="Car/Camera2D/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.05945
+margin_right = -1.05945
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumMoney" type="Label" parent="Car/Camera2D/CanvasLayer/Control"]
+anchor_right = 1.0
+margin_right = -45.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "we nick 0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ruote" type="Node" parent="."]
+
+[node name="GodotObstacle" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -396.716, -473.214 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle2" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 139.405, -465.663 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle4" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1336.24, -16.3784 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle6" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -985.846, -475.109 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle7" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1096.72, 643.701 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle8" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -567.553, 678.979 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle9" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -426.533, 1065.19 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle13" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -399.623, 2249.17 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle14" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 999.628, 2352.95 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle16" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -466.896, 2652.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle25" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1042.9, 2652.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle26" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1522.9, 2252.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle27" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1922.9, 2044.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle28" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2194.9, 1708.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle29" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2178.9, 1292.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle30" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2034.9, 940.801 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle31" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1682.9, 812.801 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle32" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -3026.9, 2636.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle34" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2834.9, 3132.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle35" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -3266.9, 2076.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle36" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -3266.9, 1452.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle37" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -3154.9, 476.801 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle39" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2978.9, 60.8009 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle40" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2658.9, -355.199 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle41" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2274.9, -403.199 )
+rotation = -0.0860606
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle42" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1650.9, -499.199 )
+rotation = -0.29626
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle38" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -3218.9, 988.801 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle33" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2530.9, 3500.8 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle17" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 750.478, 3314.88 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle20" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 280.614, 3763.39 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle21" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -146.535, 3934.25 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle22" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -765.9, 4062.39 )
+rotation = 0.458624
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle23" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -1416.72, 3934.25 )
+rotation = 0.458624
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle24" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -2008.72, 3742.25 )
+rotation = 0.458624
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle18" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1070.84, 2738.23 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle19" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1070.84, 2738.23 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle10" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1067.26, 1334.27 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle15" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1147.99, 984.462 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle11" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1026.9, 1885.9 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle12" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( -412.717, 1670.63 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle3" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 747.26, -484.54 )
+scale = Vector2( 10, 10 )
+
+[node name="GodotObstacle5" parent="ruote" instance=ExtResource( 2 )]
+position = Vector2( 1198.67, 482.881 )
+scale = Vector2( 10, 10 )
+
+[node name="Money" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2704, 1472 )
+
+[node name="Money10" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2088, 192 )
+
+[node name="Money11" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2472, 616 )
+
+[node name="Money2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2392, 2672 )
+
+[node name="Money3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1776, 2992 )
+
+[node name="Money4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -848, 3320 )
+
+[node name="Money5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 152, 2408 )
+
+[node name="Money6" parent="." instance=ExtResource( 4 )]
+position = Vector2( -600, 40 )
+
+[node name="Money7" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1192, 48 )
+
+[node name="Money8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 224, 776 )
+
+[node name="Money9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 416, 192 )
