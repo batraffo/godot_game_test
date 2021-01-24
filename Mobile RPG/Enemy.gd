@@ -1,5 +1,7 @@
 extends Node2D
 
+const BattleUnits = preload("res://BattleUnits.tres")
+
 var hp = 25 setget set_hp #chiamata quando cambio la variabile
 var target=null
 
@@ -12,18 +14,24 @@ signal end_turn
 func set_hp(new_hp):
 	hp=new_hp
 	hpLabel.text= str(hp)+"hp"
+	
+func _ready():
+	BattleUnits.Enemy=self
+	
+func _exit_tree():
+	BattleUnits.Enemy = null
 
-func attack(target) -> void:
+func attack() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")#aspetto un quarto di secondo per nonfar attccare come finisce l'animazione di shake
 	animationPlayer.play("Attack")
-	self.target = target
+	
 	yield(animationPlayer, "animation_finished") #verrà chiamta dealdamage durante l'animazione
-	self.target = null
+
 	emit_signal("end_turn")
 	
 
 func deal_damage(): #i danni verranno segnati durante l'animazione non all'inizio
-	self.target.hp -=4
+	BattleUnits.PlayerStats.hp -=4
 	print("dealed")
 
 func take_damage(amount):
