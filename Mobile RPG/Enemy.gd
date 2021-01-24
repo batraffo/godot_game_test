@@ -2,8 +2,8 @@ extends Node2D
 
 const BattleUnits = preload("res://BattleUnits.tres")
 
-var hp = 25 setget set_hp #chiamata quando cambio la variabile
-var target=null
+export (int) var hp = 25 setget set_hp #chiamata quando cambio la variabile
+export (int) var damage = 3
 
 onready var hpLabel=$HPLabel
 onready var animationPlayer = $AnimationPlayer
@@ -13,7 +13,8 @@ signal end_turn
 
 func set_hp(new_hp):
 	hp=new_hp
-	hpLabel.text= str(hp)+"hp"
+	if(hpLabel!=null):
+		hpLabel.text= str(hp)+"hp"
 	
 func _ready():
 	BattleUnits.Enemy=self
@@ -31,7 +32,7 @@ func attack() -> void:
 	
 
 func deal_damage(): #i danni verranno segnati durante l'animazione non all'inizio
-	BattleUnits.PlayerStats.hp -=4
+	BattleUnits.PlayerStats.hp -=damage
 	print("dealed")
 
 func take_damage(amount):

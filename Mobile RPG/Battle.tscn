@@ -1,16 +1,37 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MobileRPG Resources/Images/Mobile RPG Mockup.png" type="Texture" id=1]
-[ext_resource path="res://character/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://character/Slime.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MobileRPG Resources/Images/Dungeon.png" type="Texture" id=3]
 [ext_resource path="res://Battle.gd" type="Script" id=4]
 [ext_resource path="res://PlayerStats.gd" type="Script" id=5]
 [ext_resource path="res://StatsPanel.gd" type="Script" id=6]
 [ext_resource path="res://buttons/SwordActionButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://buttons/HealActionButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://character/Rat.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeToNewRoom"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Battle" type="Node"]
 script = ExtResource( 4 )
+enemies = [ ExtResource( 9 ), ExtResource( 2 ) ]
 
 [node name="PlayerStats" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -19,7 +40,13 @@ script = ExtResource( 5 )
 position = Vector2( 45, 80 )
 texture = ExtResource( 3 )
 
+[node name="EnemyPosition" type="Position2D" parent="."]
+position = Vector2( 46, 33 )
+
+[node name="Slime" parent="EnemyPosition" instance=ExtResource( 2 )]
+
 [node name="Mobile RPG Mockup" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.282353 )
 position = Vector2( 45, 80 )
 texture = ExtResource( 1 )
@@ -27,14 +54,30 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+margin_right = 90.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextRoomButton" type="Button" parent="UI/CenterContainer"]
+visible = false
+margin_left = 10.0
+margin_top = 13.0
+margin_right = 80.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 70, 13 )
+text = "ENTER NEXT ROOM"
 
 [node name="StatsPanel" type="Panel" parent="UI"]
 margin_left = 3.0
@@ -94,6 +137,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextBox" type="RichTextLabel" parent="UI/TextBoxPanel"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 92.0
+margin_bottom = 21.0
+custom_styles/normal = SubResource( 2 )
+custom_constants/line_separation = 2
+scroll_active = false
+
 [node name="BattleActionButton" type="GridContainer" parent="UI"]
 margin_left = 9.0
 margin_top = 73.0
@@ -114,7 +166,20 @@ margin_bottom = 13.0
 margin_left = 40.0
 margin_right = 72.0
 margin_bottom = 13.0
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeToNewRoom = SubResource( 1 )
 [connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
 [connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
 [connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]
-[connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
+[connection signal="pressed" from="UI/CenterContainer/NextRoomButton" to="." method="_on_NextRoomButton_pressed"]
